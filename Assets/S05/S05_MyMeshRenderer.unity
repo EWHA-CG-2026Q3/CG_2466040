@@ -530,6 +530,7 @@ GameObject:
   - component: {fileID: 2124864939}
   - component: {fileID: 2124864941}
   - component: {fileID: 2124864940}
+  - component: {fileID: 2124864942}
   m_Layer: 5
   m_Name: PixelCanvas
   m_TagString: Untagged
@@ -591,6 +592,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124864938}
   m_CullTransparentMesh: 1
+--- !u!114 &2124864942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124864938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0224f4894f07d462eb5ef7c6d815a2de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  canvasWidth: 256
+  canvasHeight: 256
+  backgroundColor: {r: 0, g: 0, b: 0, a: 1}
+  patternSize: 16
+  colorA: {r: 1, g: 1, b: 1, a: 1}
+  colorB: {r: 0.3, g: 0.5, b: 0.8, a: 1}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
