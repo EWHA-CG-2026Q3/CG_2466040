@@ -8,13 +8,12 @@ public class S07_Clipping : MonoBehaviour
     [SerializeField] private int canvasWidth = 256;
     [SerializeField] private int canvasHeight = 256;
     [SerializeField] private int clipMargin = 40;  // 캔버스 안쪽으로 이만큼 들어온 지점이 클리핑 경계
-    // 좌표 설계 이유: 오각형의 왼쪽 두 점은 x=-20으로 왼쪽 경계(40) 밖에, 꼭대기는 y=290으로 위쪽 경계(216) 밖에,
-    // 아래 두 점은 y=10·20으로 아래쪽 경계(40) 밖에 두어 왼쪽·위·아래 세 방향으로 동시에 넘어가게 하고,
-    // 오른쪽은 x=200으로 경계 안에 남겨 잘린 변과 안 잘린 변이 한 그림에서 비교되도록 했다.
+    // 좌표 설계 이유: 원래 삼각형(-30,50)·(120,220)·(280,50)에서 왼쪽 점은 그대로 두고, 위 꼭짓점은 y=300으로
+    // 위쪽 경계(216)보다 훨씬 위로, 오른쪽 점은 x=320으로 오른쪽 경계(216)보다 훨씬 오른쪽으로 옮겨서
+    // 왼쪽·위·오른쪽 세 방향으로 동시에 넘어가되 위쪽과 오른쪽이 잘린 게 눈에 띄게 보이도록 했다.
     [SerializeField]
     private List<Vector2> polygon = new List<Vector2> {
-        new Vector2(-20, 20), new Vector2(-20, 200), new Vector2(110, 290),
-        new Vector2(200, 180), new Vector2(130, 10)
+        new Vector2(-30, 50), new Vector2(120, 300), new Vector2(320, 50)
     };
     [SerializeField] private Color fillColor = new Color(1f, 0.6f, 0.2f, 1f);
     [SerializeField] private Color marginOutlineColor = new Color(0.5f, 0.5f, 0.5f, 1f);
