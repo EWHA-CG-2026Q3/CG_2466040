@@ -7,19 +7,22 @@ public class S07_DepthTest2 : MonoBehaviour
     [SerializeField] private int canvasWidth = 256;
     [SerializeField] private int canvasHeight = 256;
 
-    [SerializeField] private Vector3 vertexA1 = new Vector3(100, 180, 0.3f);
-    [SerializeField] private Vector3 vertexB1 = new Vector3(60, 80, 0.3f);
-    [SerializeField] private Vector3 vertexC1 = new Vector3(180, 80, 0.3f);
+    // z 설계 이유: 삼각형1은 아래로 갈수록 가까워지게(0.7→0.2), 삼각형2·3은 위로 갈수록 가까워지게
+    // z를 서로 반대 방향으로 기울여서, 겹치는 영역의 위쪽과 아래쪽에서 보간된 z의 대소가 뒤집혀
+    // 보이는 색이 위치마다 바뀌도록 했다. (어느 한쪽 삼각형도 전체가 가려지지 않음)
+    [SerializeField] private Vector3 vertexA1 = new Vector3(100, 180, 0.7f);
+    [SerializeField] private Vector3 vertexB1 = new Vector3(60, 80, 0.2f);
+    [SerializeField] private Vector3 vertexC1 = new Vector3(180, 80, 0.2f);
     [SerializeField] private Color color1 = new Color(1f, 0.4f, 0.2f, 1f);
 
     [SerializeField] private Vector3 vertexA2 = new Vector3(150, 200, 0.2f);
     [SerializeField] private Vector3 vertexB2 = new Vector3(90, 60, 0.8f);
-    [SerializeField] private Vector3 vertexC2 = new Vector3(220, 60, 0.8f);
+    [SerializeField] private Vector3 vertexC2 = new Vector3(220, 60, 0.5f);
     [SerializeField] private Color color2 = new Color(0.2f, 0.5f, 1f, 1f);
 
-    [SerializeField] private Vector3 vertexA3 = new Vector3(210, 220, 0.3f);
-    [SerializeField] private Vector3 vertexB3 = new Vector3(160, 50, 0.6f);
-    [SerializeField] private Vector3 vertexC3 = new Vector3(250, 50, 0.9f);
+    [SerializeField] private Vector3 vertexA3 = new Vector3(210, 220, 0.4f);
+    [SerializeField] private Vector3 vertexB3 = new Vector3(160, 50, 0.9f);
+    [SerializeField] private Vector3 vertexC3 = new Vector3(250, 50, 0.3f);
     [SerializeField] private Color color3 = new Color(0.3f, 0.9f, 0.4f, 1f);
 
     private Texture2D canvasTexture;

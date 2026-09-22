@@ -697,17 +697,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::S07_DepthTest2
   canvasWidth: 256
   canvasHeight: 256
-  vertexA1: {x: 100, y: 180, z: 0.3}
-  vertexB1: {x: 60, y: 80, z: 0.3}
-  vertexC1: {x: 180, y: 80, z: 0.3}
+  vertexA1: {x: 100, y: 180, z: 0.7}
+  vertexB1: {x: 60, y: 80, z: 0.2}
+  vertexC1: {x: 180, y: 80, z: 0.2}
   color1: {r: 1, g: 0.4, b: 0.2, a: 1}
   vertexA2: {x: 150, y: 200, z: 0.2}
   vertexB2: {x: 90, y: 60, z: 0.8}
-  vertexC2: {x: 220, y: 60, z: 0.8}
+  vertexC2: {x: 220, y: 60, z: 0.5}
   color2: {r: 0.2, g: 0.5, b: 1, a: 1}
-  vertexA3: {x: 210, y: 220, z: 0.3}
-  vertexB3: {x: 160, y: 50, z: 0.6}
-  vertexC3: {x: 250, y: 50, z: 0.9}
+  vertexA3: {x: 210, y: 220, z: 0.4}
+  vertexB3: {x: 160, y: 50, z: 0.9}
+  vertexC3: {x: 250, y: 50, z: 0.3}
   color3: {r: 0.3, g: 0.9, b: 0.4, a: 1}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
