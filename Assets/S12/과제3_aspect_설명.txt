@@ -1,0 +1,3 @@
+BuildProjectionMatrix에서 aspect를 1로 바꾸면 가로 방향 보정이 사라져, 원래 4:3 캔버스에서 원으로 보이던 공이 가로로 늘어나 보인다.
+원근 투영 행렬의 m00은 1 / (tan(fov/2) × aspect)이므로, 실제 aspect를 사용해야 가로와 세로의 단위 길이가 같은 비율로 픽셀에 투영된다.
+확인 후 코드는 원래의 (float)width / height로 되돌려 두었다.
