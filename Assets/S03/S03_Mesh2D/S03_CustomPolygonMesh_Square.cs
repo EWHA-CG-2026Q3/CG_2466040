@@ -9,18 +9,12 @@
           Vector3[] vertices = new Vector3[]
           {
               // 예: new Vector3(0f, 1f, 0f),
-              new Vector3(-1f, -1f, 0f), // 0: 왼쪽 아래
-              new Vector3(-1f,  1f, 0f), // 1: 왼쪽 위
-              new Vector3( 1f,  1f, 0f), // 2: 오른쪽 위
-              new Vector3( 1f, -1f, 0f), // 3: 오른쪽 아래
           };
 
           // TODO 2: 정점 3개씩 묶어 삼각형들을 구성하세요
           int[] triangles = new int[]
           {
               // 예: 0, 1, 2,
-              0, 1, 2, // 첫 번째 삼각형: 왼아래 → 왼위 → 오른위
-              0, 2, 3, // 두 번째 삼각형: 왼아래 → 오른위 → 오른아래
           };
 
           Mesh mesh = new Mesh();

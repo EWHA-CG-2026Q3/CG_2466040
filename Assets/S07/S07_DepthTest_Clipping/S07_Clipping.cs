@@ -8,12 +8,9 @@ public class S07_Clipping : MonoBehaviour
     [SerializeField] private int canvasWidth = 256;
     [SerializeField] private int canvasHeight = 256;
     [SerializeField] private int clipMargin = 40;  // 캔버스 안쪽으로 이만큼 들어온 지점이 클리핑 경계
-    // 좌표 설계 이유: 원래 삼각형(-30,50)·(120,220)·(280,50)에서 왼쪽 점은 그대로 두고, 위 꼭짓점은 y=300으로
-    // 위쪽 경계(216)보다 훨씬 위로, 오른쪽 점은 x=320으로 오른쪽 경계(216)보다 훨씬 오른쪽으로 옮겨서
-    // 왼쪽·위·오른쪽 세 방향으로 동시에 넘어가되 위쪽과 오른쪽이 잘린 게 눈에 띄게 보이도록 했다.
     [SerializeField]
     private List<Vector2> polygon = new List<Vector2> {
-        new Vector2(-30, 50), new Vector2(120, 300), new Vector2(320, 50)
+        new Vector2(10, 130), new Vector2(130, 250), new Vector2(246, 130)
     };
     [SerializeField] private Color fillColor = new Color(1f, 0.6f, 0.2f, 1f);
     [SerializeField] private Color marginOutlineColor = new Color(0.5f, 0.5f, 0.5f, 1f);
@@ -102,73 +99,26 @@ public class S07_Clipping : MonoBehaviour
     // 지금은 "통과만 시키는" 상태 — 완성하기 전까지는 이 단계에서 아무것도 안 잘림
     private List<Vector2> ClipRight(List<Vector2> input, float boundary)
     {
-        List<Vector2> output = new List<Vector2>();
-        for (int i = 0; i < input.Count; i++)
-        {
-            Vector2 current = input[i];
-            Vector2 previous = input[(i - 1 + input.Count) % input.Count];
-            bool currentInside = current.x <= boundary;
-            bool previousInside = previous.x <= boundary;
+        return input;
 
-            if (currentInside)
-            {
-                if (!previousInside) output.Add(GetIntersectionX(previous, current, boundary));
-                output.Add(current);
-            }
-            else if (previousInside)
-            {
-                output.Add(GetIntersectionX(previous, current, boundary));
-            }
-        }
-        return output;
+        // TODO: 위의 return input; 을 지우고, ClipLeft와 같은 구조로
+        // "안쪽"의 정의만 반대(x <= boundary)로 바꿔서 작성하세요.
     }
 
     // ── TODO: 아래쪽 경계(y >= boundary)로 자르는 함수를 완성하세요 ──
     private List<Vector2> ClipBottom(List<Vector2> input, float boundary)
     {
-        List<Vector2> output = new List<Vector2>();
-        for (int i = 0; i < input.Count; i++)
-        {
-            Vector2 current = input[i];
-            Vector2 previous = input[(i - 1 + input.Count) % input.Count];
-            bool currentInside = current.y >= boundary;
-            bool previousInside = previous.y >= boundary;
+        return input;
 
-            if (currentInside)
-            {
-                if (!previousInside) output.Add(GetIntersectionY(previous, current, boundary));
-                output.Add(current);
-            }
-            else if (previousInside)
-            {
-                output.Add(GetIntersectionY(previous, current, boundary));
-            }
-        }
-        return output;
+        // TODO: ClipLeft와 같은 구조, 비교 축만 x → y로 바뀝니다.
     }
 
     // ── TODO: 위쪽 경계(y <= boundary)로 자르는 함수를 완성하세요 ──
     private List<Vector2> ClipTop(List<Vector2> input, float boundary)
     {
-        List<Vector2> output = new List<Vector2>();
-        for (int i = 0; i < input.Count; i++)
-        {
-            Vector2 current = input[i];
-            Vector2 previous = input[(i - 1 + input.Count) % input.Count];
-            bool currentInside = current.y <= boundary;
-            bool previousInside = previous.y <= boundary;
+        return input;
 
-            if (currentInside)
-            {
-                if (!previousInside) output.Add(GetIntersectionY(previous, current, boundary));
-                output.Add(current);
-            }
-            else if (previousInside)
-            {
-                output.Add(GetIntersectionY(previous, current, boundary));
-            }
-        }
-        return output;
+        // TODO: ClipRight와 같은 부등호 방향, 비교 축만 x → y로 바뀝니다.
     }
 
     // ── 참고 예시로 이미 완성되어 있음 ──────────────────────
@@ -181,8 +131,8 @@ public class S07_Clipping : MonoBehaviour
     // ── TODO: GetIntersectionX를 참고해서 y 기준 교차점을 구하는 함수를 완성하세요 ──
     private Vector2 GetIntersectionY(Vector2 p1, Vector2 p2, float boundaryY)
     {
-        float t = (boundaryY - p1.y) / (p2.y - p1.y);
-        return new Vector2(p1.x + t * (p2.x - p1.x), boundaryY);
+        // TODO
+        return Vector2.zero;
     }
 
     // ── 이미 완성되어 있음 (S06과 동일한 로직 재사용) ─────────
