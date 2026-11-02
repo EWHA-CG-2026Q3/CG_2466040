@@ -15,7 +15,7 @@
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
             float4 _BaseColor;
-            float4 _EmmisionColor;
+            float4 _EmissionColor;
             
             float4 vert(float3 positionOS : POSITION) : SV_POSITION
             {
@@ -24,7 +24,7 @@
 
             float4 frag() : SV_Target
             {
-                return float4 (_BaseColor.rgb + _EmmisionColor.rgb, 1);
+                return float4 (_BaseColor.rgb + _EmissionColor.rgb, 1);
             }
             ENDHLSL
         }
